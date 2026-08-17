@@ -1,6 +1,6 @@
 ---
 title: Tips & Tricks
-description: Useful information for using Equibop on Linux
+description: Useful information for using Kernixcord on Linux
 sidebar:
     order: 1
 ---
@@ -9,9 +9,9 @@ sidebar:
 
 Most of the flags listed below can be applied using one of these three methods:
 
-1. **Tray icon:** `Right-click on the Equibop tray icon > Launch arguments`.
-2. **Desktop entry:** Edit the `Exec` line in `/usr/share/applications/equibop.desktop`.
-3. **Config file:** Add flags to `${XDG_CONFIG_HOME}/equibop-flags.conf` (see [Configuration Details](/wiki/linux/tips/#configuration-details) section).
+1. **Tray icon:** `Right-click on the Kernixcord tray icon > Launch arguments`.
+2. **Desktop entry:** Edit the `Exec` line in `/usr/share/applications/kernixcord.desktop`.
+3. **Config file:** Add flags to `${XDG_CONFIG_HOME}/kernixcord-flags.conf` (see [Configuration Details](/wiki/linux/tips/#configuration-details) section).
 
 ### Ozone platform
 
@@ -19,7 +19,7 @@ Most of the flags listed below can be applied using one of these three methods:
 --ozone-platform <x11 | wayland>
 ```
 
-Explicitly sets whether Equibop runs under Wayland or X11 (XWayland). Use `--ozone-platform=wayland` to force native Wayland, or `--ozone-platform=x11` to force XWayland.
+Explicitly sets whether Kernixcord runs under Wayland or X11 (XWayland). Use `--ozone-platform=wayland` to force native Wayland, or `--ozone-platform=x11` to force XWayland.
 
 ## GNOME tray icon
 
@@ -64,9 +64,9 @@ Enable middle-click autoscroll with:
 
 By default this conflicts with the common Linux behavior where middle-click pastes the primary selection. Fixes by environment:
 
--   If you are running Equibop in Wayland, you might be able to disable it in your Desktop settings.
+-   If you are running Kernixcord in Wayland, you might be able to disable it in your Desktop settings.
     On GNOME, you can disable it in [Gnome Tweaks](https://wiki.gnome.org/Apps/Tweaks).
--   If you are running Equibop in X11, install and run [XMousePasteBlock](https://github.com/milaq/XMousePasteBlock).
+-   If you are running Kernixcord in X11, install and run [XMousePasteBlock](https://github.com/milaq/XMousePasteBlock).
 
 ## Start minimized
 
@@ -75,7 +75,7 @@ By default this conflicts with the common Linux behavior where middle-click past
 --start-minimized
 ```
 
-Launches Equibop directly to the system tray without showing the main window.
+Launches Kernixcord directly to the system tray without showing the main window.
 
 ## Windows spoof
 
@@ -101,43 +101,43 @@ These commands query or change your voice/call state from the terminal. **The ap
 ### Query commands
 
 ```bash
-equibop --get-call-duration      # Shows the current call duration ([hh]:mm:ss)
-equibop --get-voice-channel-name # Shows the name of the voice channel you are in
-equibop --is-in-call             # Shows whether you are currently on a voice call or not
+kernixcord --get-call-duration      # Shows the current call duration ([hh]:mm:ss)
+kernixcord --get-voice-channel-name # Shows the name of the voice channel you are in
+kernixcord --is-in-call             # Shows whether you are currently on a voice call or not
 ```
 
 ### Toggle commands
 
 ```bash
-equibop --toggle-mic     # Toggle your microphone status
-equibop --toggle-deafen  # Toggle your deafen status
-equibop --toggle-vad     # Toggle Voice Activity Detection (Voice Activity <-> Push To Talk)
+kernixcord --toggle-mic     # Toggle your microphone status
+kernixcord --toggle-deafen  # Toggle your deafen status
+kernixcord --toggle-vad     # Toggle Voice Activity Detection (Voice Activity <-> Push To Talk)
 ```
 
 #### Flatpak equivalents
 
 ```bash
-flatpak run org.equicord.equibop --get-call-duration
-flatpak run org.equicord.equibop --get-voice-channel-name
-flatpak run org.equicord.equibop --is-in-call
-flatpak run org.equicord.equibop --toggle-mic
-flatpak run org.equicord.equibop --toggle-deafen
-flatpak run org.equicord.equibop --toggle-vad
+flatpak run org.kanvekin.kernixcord --get-call-duration
+flatpak run org.kanvekin.kernixcord --get-voice-channel-name
+flatpak run org.kanvekin.kernixcord --is-in-call
+flatpak run org.kanvekin.kernixcord --toggle-mic
+flatpak run org.kanvekin.kernixcord --toggle-deafen
+flatpak run org.kanvekin.kernixcord --toggle-vad
 ```
 
 :::caution[Important]
 **These are action/query commands, not launch flags.**
 * **Do NOT** add these to your launch arguments.
 * **Do NOT** add these to your `.desktop` file exec line.
-* **Do NOT** add these to your `equibop-flags.conf` file.
+* **Do NOT** add these to your `kernixcord-flags.conf` file.
 :::
 :::note
-For more information you can always use `equibop --help` in your terminal!
+For more information you can always use `kernixcord --help` in your terminal!
 :::
 
 ### How to use toggle commands correctly
 
-1. **Terminal:** Run the command manually while Equibop is open.
+1. **Terminal:** Run the command manually while Kernixcord is open.
 2. **System Shortcuts (Recommended):** Bind them to global keyboard shortcuts in your Desktop Environment (GNOME, KDE, etc.).
 
 ---
@@ -149,27 +149,27 @@ You can persist flags either by editing the `.desktop` file or by creating the f
 ### Find the desktop file
 
 ```sh
-locate -ib equibop.desktop
+locate -ib kernixcord.desktop
 ```
 
-Common location: `/usr/share/applications/equibop.desktop` (but your distribution may place it elsewhere).
+Common location: `/usr/share/applications/kernixcord.desktop` (but your distribution may place it elsewhere).
 
 ### Edit the Exec line
 
 Open the `.desktop` file with your preferred editor and append the flags after the binary and before `%U` (if present):
 
 ```text
-Exec=/usr/bin/equibop --force_high_performance_gpu %U
+Exec=/usr/bin/kernixcord --force_high_performance_gpu %U
 ```
 
 ## Configuration details
 
-Create `${XDG_CONFIG_HOME}/equibop-flags.conf` to keep persistent flags across updates and desktop entry resets.
+Create `${XDG_CONFIG_HOME}/kernixcord-flags.conf` to keep persistent flags across updates and desktop entry resets.
 
 * One flag per line or multiple flags on a single line (shell style) are both acceptable.
 * Lines starting with `#` are ignored (useful for comments).
 
-Example `equibop-flags.conf`:
+Example `kernixcord-flags.conf`:
 
 ```text
 # Prefer discrete GPU

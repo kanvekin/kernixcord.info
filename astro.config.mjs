@@ -5,13 +5,13 @@ import starlightLinksValidator from "starlight-links-validator";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://equibop.org",
+    site: "https://kernixcord.info",
     vite: {
         server: {
-            allowedHosts: ['equibop.org'],
+            allowedHosts: ['kernixcord.info'],
         },
         preview: {
-            allowedHosts: ['equibop.org'],
+            allowedHosts: ['kernixcord.info'],
         },
     },
 
@@ -19,19 +19,19 @@ export default defineConfig({
         starlight({
             plugins: [starlightLinksValidator()],
 
-            title: "Equibop",
-            description: "Equibop is a custom desktop client for Discord",
+            title: "Kernixcord",
+            description: "Kernixcord is a custom desktop client for Discord",
             logo: {
-                src: "./src/assets/equibop.svg"
+                src: "./src/assets/kernixcord.svg"
             },
 
             social: [
-                { icon: "github", label: "GitHub", href: "https://github.com/Equicord/Equibop" },
-                { icon: "discord", label: "Discord", href: "https://equicord.org/discord" }
+                { icon: "github", label: "GitHub", href: "https://github.com/kanvekin/Kernixcord" },
+                { icon: "discord", label: "Discord", href: "https://discord.gg/PUD3BTztnC" }
             ],
 
             editLink: {
-                baseUrl: "https://github.com/Equicord/equibop.org/edit/main/"
+                baseUrl: "https://github.com/kanvekin/kernixcord.info/edit/main/"
             },
 
             lastUpdated: true,

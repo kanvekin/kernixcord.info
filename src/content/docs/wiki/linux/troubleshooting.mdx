@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description: Common issues and their solutions for Equibop on Linux
+description: Common issues and their solutions for Kernixcord on Linux
 sidebar:
     order: 4
 ---
@@ -9,17 +9,17 @@ sidebar:
 
 * **Corrupted Database or Missing Files:** If `locate` shows a corrupted file read (`pread: Short read (file corrupted? )`) or does not find the file, try searching manually:
     ```sh
-    find / -name "equibop.desktop" 2>/dev/null
+    find / -name "kernixcord.desktop" 2>/dev/null
     ```
     Or check the standard directories: `/usr/share/applications` and `~/.local/share/applications`.
     
-* **Persistence after Updates:** If your distro overwrites `/usr/share/applications` on update, prefer the `${XDG_CONFIG_HOME}/equibop-flags.conf` approach or place a local `.desktop` in `~/.local/share/applications`.
+* **Persistence after Updates:** If your distro overwrites `/usr/share/applications` on update, prefer the `${XDG_CONFIG_HOME}/kernixcord-flags.conf` approach or place a local `.desktop` in `~/.local/share/applications`.
 
 ## Nothing happens when trying to start a Screenshare
 
 This means you either have no Screen cast portal, or it's broken. See [XDG Desktop Portal on the Arch Linux Wiki](https://wiki.archlinux.org/title/XDG_Desktop_Portal) for more information.
 
-## Equibop freezes after getting pinged or messaged
+## Kernixcord freezes after getting pinged or messaged
 
 This is due to having no Notification Server on your system. Either [install one](https://wiki.archlinux.org/title/Desktop_notifications)
 or disable Desktop Notifications in Discord Notification settings
@@ -28,9 +28,9 @@ or disable Desktop Notifications in Discord Notification settings
 
 Install `xdg-utils`
 
-## Equibop looks blurry
+## Kernixcord looks blurry
 
-The most likely cause is that Equibop is running in XWayland; Try running in Wayland instead.
+The most likely cause is that Kernixcord is running in XWayland; Try running in Wayland instead.
 
 See [Tips & Tricks - Wayland Support](/wiki/linux/tips#ozone-platform) for more information.
 
@@ -44,9 +44,9 @@ This happens because these videos use the HEVC encoding. Follow these steps to e
     ```
     If there is no output, it's not supported.
 2. If it's not supported, try to [install it](https://wiki.archlinux.org/title/Hardware_video_acceleration#Installation) and repeat step 1. You need exactly VA-API, not VDPAU or NVDEC.
-3. Run Equibop with the following flags:
+3. Run Kernixcord with the following flags:
     ```sh
-    equibop --enable-features=VaapiIgnoreDriverChecks,Vulkan,DefaultANGLEVulkan,VulkanFromANGLE,VaapiOnNvidiaGPUs
+    kernixcord --enable-features=VaapiIgnoreDriverChecks,Vulkan,DefaultANGLEVulkan,VulkanFromANGLE,VaapiOnNvidiaGPUs
     ```
     To make this permanent, see [Tips & Tricks - Making Command Line Flags Permanent](/wiki/linux/tips#making-command-line-flags-permanent).
 
@@ -57,5 +57,5 @@ You can use your system's [tray icon](https://www.google.com/search?q=what+is+a+
 Alternatively, if you are using version **3.1.8** or higher, open your favorite terminal and run the command below to repair it:
 
 ```sh
-equibop -r
+kernixcord -r
 ```

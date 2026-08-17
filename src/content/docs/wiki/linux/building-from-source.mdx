@@ -1,16 +1,16 @@
 ---
 title: Building from Source
-description: Learn how to build Equibop from source for development purposes.
+description: Learn how to build Kernixcord from source for development purposes.
 sidebar:
     order: 3
 ---
 
 :::note
-To use **user plugins**, you need to build **Equicord** from source — Equibop itself does not need to be built. **You are in the wrong place.**<br></br>
+To use **user plugins**, you need to build **Equicord** from source — Kernixcord itself does not need to be built. **You are in the wrong place.**<br></br>
 Check the [Dev Build guide](/wiki/linux/dev-build/) for instructions.
 :::
 
-To build Equibop, the standalone client, you must have the following dependencies installed:
+To build Kernixcord, the standalone client, you must have the following dependencies installed:
 
 * [Git](https://git-scm.com/downloads)
 * [Bun](https://bun.sh)
@@ -18,8 +18,8 @@ To build Equibop, the standalone client, you must have the following dependencie
 ### Setup
 
 ```sh
-git clone https://github.com/Equicord/Equibop
-cd Equibop
+git clone https://github.com/kanvekin/kernixcord
+cd Kernixcord
 
 # Install Dependencies
 bun install
@@ -27,7 +27,7 @@ bun install
 
 ### Build Targets & Options
 
-Equibop can be built or run in several ways:
+Kernixcord can be built or run in several ways:
 
 * **Run without packaging:** `bun start`
 * **Package for your OS:** `bun package`
@@ -36,7 +36,7 @@ Equibop can be built or run in several ways:
 
 ## Building LibVesktop from Source
 
-**LibVesktop** is a small C++ helper library that Equibop uses on Linux to emit D-Bus events. By default, prebuilt binaries for **x64** and **arm64** are used.
+**LibVesktop** is a small C++ helper library that Kernixcord uses on Linux to emit D-Bus events. By default, prebuilt binaries for **x64** and **arm64** are used.
 
 If you prefer to build it from source yourself, follow these steps:
 
@@ -51,4 +51,4 @@ bun buildLibVesktop
 
 ```
 
-3. **Finalize:** From now on, building Equibop will prioritize and use your local build of LibVesktop.
+3. **Finalize:** From now on, building Kernixcord will prioritize and use your local build of LibVesktop.
