@@ -1,18 +1,18 @@
 (async function() {
     try {
-        var res = await fetch("https://api.github.com/repos/Equicord/Kernixcord/releases/latest");
+        var res = await fetch("https://api.github.com/repos/kanvekin/kernixe/releases/latest");
         var data = await res.json();
         var version = data.tag_name.replace(/^v/, "");
 
         document.querySelectorAll("a[data-filename]").forEach(function(btn) {
             var template = btn.dataset.filename;
             var filename = template.replace(/VERSION/g, version);
-            btn.href = "https://github.com/kanvekin/kernixcord/releases/download/v" + version + "/" + filename;
+            btn.href = "https://github.com/kanvekin/kernixe/releases/download/v" + version + "/" + filename;
         });
     } catch (e) {
         console.error("Failed to fetch version:", e);
         document.querySelectorAll("a[data-filename]").forEach(function(btn) {
-            btn.href = "https://github.com/kanvekin/kernixcord/releases/latest";
+            btn.href = "https://github.com/kanvekin/kernixe/releases/latest";
         });
     }
 })();
